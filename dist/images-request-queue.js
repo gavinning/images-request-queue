@@ -5,8 +5,8 @@ class IR {
             this.__list = queue.slice(0)
         }
         else{
-            this.__deep = queue.deep,
-            this.__list = queue.list
+            this.__deep = queue.deep
+            this.__list = queue.list.slice(0)
         }
     }
 
@@ -16,7 +16,7 @@ class IR {
 
     __loadimg(url, fn) {
         let img = new Image
-        this.__deep ? img.src = eval(`url.${this.__deep}`) : img.src = url;
+        this.__deep ? img.src = eval(`url.${this.__deep}`) : img.src = url
         img.onload = function(){
             fn(this)
         }
