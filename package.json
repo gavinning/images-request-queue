@@ -2,7 +2,7 @@
   "name": "images-request-queue",
   "version": "0.1.0",
   "description": "images request queue",
-  "main": "dist/images-request-queue.js",
+  "main": "dist/images-request-queue.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
