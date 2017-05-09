@@ -24,8 +24,12 @@
 <body>
     <div id="grid" class="grid"></div>
 <script>
-let list = imglist()
-let ir = new IR(list)
+let easyList = imglist()
+let deepList = imglistDeep()
+let ir = new IR({
+    list: deepList,
+    deep: 'img.url'
+})
 
 function render() {
     let n1 = new Date().getTime()

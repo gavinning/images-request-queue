@@ -1,6 +1,13 @@
 class IR {
     constructor(queue) {
-        this.__list = queue.slice(0)
+        if(Array.isArray(queue)){
+            this.__deep = false
+            this.__list = queue.slice(0)
+        }
+        else{
+            this.__deep = queue.deep,
+            this.__list = queue.list
+        }
     }
 
     __queue(size) {
@@ -9,7 +16,7 @@ class IR {
 
     __loadimg(url, fn) {
         let img = new Image
-        img.src = url
+        this.__deep ? img.src = eval(`url.${this.__deep}`) : img.src = url;
         img.onload = function(){
             fn(this)
         }
@@ -30,4 +37,4 @@ class IR {
     }
 }
 
-module.exports = IR
+// module.exports = IR

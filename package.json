@@ -1,6 +1,6 @@
 {
   "name": "images-request-queue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "images request queue",
   "main": "dist/images-request-queue.min.js",
   "scripts": {
