@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="test.js"></script>
+    <script src="../src/images-request-queue.js"></script>
+    <style type="text/css">
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        background: #111;
+    }
+    .grid img{
+        width: 200px;
+        margin: 2px;
+    }
+    </style>
+</head>
+<body>
+    <div id="grid" class="grid"></div>
+<script>
+let list = imglist()
+let ir = new IR(list)
+
+function render() {
+    let n1 = new Date().getTime()
+    ir.load(2).then(res => {
+        if(!res.length) return
+        res.forEach((img, index) => {
+            img.className = 'grid-item'
+            grid.appendChild(img)
+
+            if(index === res.length-1){
+                let n2 = new Date().getTime()
+                render()
+                console.log(n2-n1)
+            }
+        })
+    })
+}
+
+render()
+</script>
+</body>
+</html>
