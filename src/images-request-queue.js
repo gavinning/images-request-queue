@@ -17,9 +17,7 @@ class IR {
     __loadimg(url, fn) {
         let img = new Image
         this.__deep ? img.src = eval(`url.${this.__deep}`) : img.src = url
-        img.onload = function(){
-            fn(this)
-        }
+        img.complete ? fn(img) : img.onload = () => fn(img)
     }
 
     load(size) {
@@ -37,4 +35,4 @@ class IR {
     }
 }
 
-// module.exports = IR
+module.exports = IR
